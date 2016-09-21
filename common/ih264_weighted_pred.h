@@ -54,6 +54,12 @@
 *  -ih264_weighted_pred_chroma_sse42
 *  -ih264_weighted_bi_pred_luma_sse42
 *  -ih264_weighted_bi_pred_chroma_sse42
+*  -ih264_default_weighted_pred_luma_msa;
+*  -ih264_default_weighted_pred_chroma_msa;
+*  -ih264_weighted_pred_luma_msa;
+*  -ih264_weighted_pred_chroma_msa;
+*  -ih264_weighted_bi_pred_luma_msa;
+*  -ih264_weighted_bi_pred_chroma_msa;
 *
 *
 * @remarks
@@ -158,6 +164,20 @@ ih264_weighted_pred_ft ih264_weighted_pred_chroma_sse42;
 ih264_weighted_bi_pred_ft ih264_weighted_bi_pred_luma_sse42;
 
 ih264_weighted_bi_pred_ft ih264_weighted_bi_pred_chroma_sse42;
+
+/* MSA Intrinsic Declarations */
+
+ih264_default_weighted_pred_ft ih264_default_weighted_pred_luma_msa;
+
+ih264_default_weighted_pred_ft ih264_default_weighted_pred_chroma_msa;
+
+ih264_weighted_pred_ft ih264_weighted_pred_luma_msa;
+
+ih264_weighted_pred_ft ih264_weighted_pred_chroma_msa;
+
+ih264_weighted_bi_pred_ft ih264_weighted_bi_pred_luma_msa;
+
+ih264_weighted_bi_pred_ft ih264_weighted_bi_pred_chroma_msa;
 
 #endif /* IH264_WEIGHTED_PRED_H_ */
 

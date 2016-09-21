@@ -174,7 +174,9 @@ typedef enum
     ARCH_X86_SSE42,
     ARCH_ARM_A53,
     ARCH_ARM_A57,
-    ARCH_ARM_V8_NEON
+    ARCH_ARM_V8_NEON,
+    ARCH_MIPS_GENERIC,
+    ARCH_MIPS_MSA
 }IV_ARCH_T;
 
 /** SOC Enumeration                               */

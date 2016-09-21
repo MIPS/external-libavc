@@ -328,4 +328,27 @@ ih264_intra_pred_chroma_ft ih264_intra_pred_chroma_8x8_mode_vert_av8;
 
 ih264_intra_pred_chroma_ft ih264_intra_pred_chroma_8x8_mode_plane_av8;
 
+/* MSA Definition */
+
+/* Luma 4x4 Intra pred filters */
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_4x4_mode_vert_msa;
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_4x4_mode_horz_msa;
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_4x4_mode_dc_msa;
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_4x4_mode_diag_dl_msa;
+
+/* Luma 8x8 Intra pred filters */
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_8x8_mode_vert_msa;
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_8x8_mode_horz_msa;
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_8x8_mode_dc_msa;
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_8x8_mode_diag_dl_msa;
+
+/* Luma 16x16 Intra pred filters */
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_16x16_mode_vert_msa;
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_16x16_mode_horz_msa;
+ih264_intra_pred_luma_ft  ih264_intra_pred_luma_16x16_mode_dc_msa;
+
+/* Chroma 8x8 Intra pred filters */
+ih264_intra_pred_chroma_ft ih264_intra_pred_chroma_8x8_mode_horz_msa;
+ih264_intra_pred_chroma_ft ih264_intra_pred_chroma_8x8_mode_vert_msa;
+
 #endif /* IH264_INTRA_PRED_FILTERS_H_ */
