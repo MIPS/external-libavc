@@ -347,6 +347,10 @@ ih264e_evaluate_intra_modes_ft ih264e_evaluate_intra_chroma_modes_av8;
 ih264e_evaluate_intra_modes_ft ih264e_evaluate_intra16x16_modes_ssse3;
 ih264e_evaluate_intra_modes_ft ih264e_evaluate_intra_chroma_modes_ssse3;
 
+/* MSA intrinsics */
+ih264e_evaluate_intra_modes_ft ih264e_evaluate_intra16x16_modes_msa;
+ih264e_evaluate_intra_modes_ft ih264e_evaluate_intra_chroma_modes_msa;
+
 /**
 ******************************************************************************
 *
@@ -414,5 +418,8 @@ ih264e_evaluate_intra_4x4_modes_ft ih264e_evaluate_intra_4x4_modes_ssse3;
 /* assembly */
 ih264e_evaluate_intra_4x4_modes_ft ih264e_evaluate_intra_4x4_modes_a9q;
 ih264e_evaluate_intra_4x4_modes_ft ih264e_evaluate_intra_4x4_modes_av8;
+
+/* MSA intrinsics */
+ih264e_evaluate_intra_4x4_modes_ft ih264e_evaluate_intra_4x4_modes_msa;
 
 #endif /* IH264E_INTRA_MODES_EVAL_H_ */

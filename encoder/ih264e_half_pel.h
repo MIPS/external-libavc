@@ -95,6 +95,9 @@ ih264e_sixtapfilter_horz_ft ih264e_sixtapfilter_horz_av8;
 /* x86 intrinsics*/
 ih264e_sixtapfilter_horz_ft ih264e_sixtapfilter_horz_ssse3;
 
+/* MSA intrinsics */
+ih264e_sixtapfilter_horz_ft ih264e_sixtapfilter_horz_msa;
+
 /**
 *******************************************************************************
 *
@@ -158,5 +161,8 @@ ih264e_sixtap_filter_2dvh_vert_ft ih264e_sixtap_filter_2dvh_vert_av8;
 
 /* x86 intrinsics */
 ih264e_sixtap_filter_2dvh_vert_ft ih264e_sixtap_filter_2dvh_vert_ssse3;
+
+/* MSA intrinsics */
+ih264e_sixtap_filter_2dvh_vert_ft ih264e_sixtap_filter_2dvh_vert_msa;
 
 #endif /* IH264E_HALF_PEL_H_ */

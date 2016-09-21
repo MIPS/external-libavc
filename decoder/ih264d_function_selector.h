@@ -56,6 +56,7 @@
 #define D_ARCH_X86_AVX2             14
 #define D_ARCH_MIPS_GENERIC         15
 #define D_ARCH_MIPS_32              16
+#define D_ARCH_MIPS_MSA             17
 
 void ih264d_init_arch(dec_struct_t *ps_codec);
 
@@ -67,5 +68,7 @@ void ih264d_init_function_ptr_sse42(dec_struct_t *ps_codec);
 
 void ih264d_init_function_ptr_a9q(dec_struct_t *ps_codec);
 void ih264d_init_function_ptr_av8(dec_struct_t *ps_codec);
+
+void ih264d_init_function_ptr_msa(dec_struct_t *ps_codec);
 
 #endif /* _IH264D_FUNCTION_SELECTOR_H_ */

@@ -59,8 +59,24 @@
 void ih264d_init_function_ptr(dec_struct_t *ps_codec)
 {
     ih264d_init_function_ptr_generic(ps_codec);
+
+#if !defined(DISABLE_MSA)
+    if(ARCH_MIPS_MSA == ps_codec->e_processor_arch)
+    {
+        ih264d_init_function_ptr_msa(ps_codec);
+    }
+#endif
 }
+
 void ih264d_init_arch(dec_struct_t *ps_codec)
 {
-    ps_codec->e_processor_arch = ARCH_NA;
+#ifdef DEFAULT_ARCH
+#if DEFAULT_ARCH == D_ARCH_MIPS_NOMSA
+    ps_codec->e_processor_arch = ARCH_MIPS_GENERIC;
+#elif DEFAULT_ARCH == D_ARCH_MIPS_MSA
+    ps_codec->e_processor_arch = ARCH_MIPS_MSA;
+#endif
+#else
+    ps_codec->e_processor_arch = ARCH_MIPS_MSA;
+#endif
 }

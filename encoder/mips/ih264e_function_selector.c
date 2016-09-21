@@ -102,10 +102,25 @@ void ih264e_init_function_ptr(void *pv_codec)
 {
     codec_t *ps_codec = (codec_t *)pv_codec;
     ih264e_init_function_ptr_generic(ps_codec);
+
+#if !defined(DISABLE_MSA)
+    if(ARCH_MIPS_MSA == ps_codec->s_cfg.e_arch)
+    {
+        ih264e_init_function_ptr_msa(ps_codec);
+    }
+#endif
 }
 
 IV_ARCH_T ih264e_default_arch(void)
 {
-    return ARCH_NA;
+#ifdef DEFAULT_ARCH
+#if DEFAULT_ARCH == D_ARCH_MIPS_NOMSA
+    return ARCH_MIPS_GENERIC;
+#elif DEFAULT_ARCH == D_ARCH_MIPS_MSA
+    return ARCH_MIPS_MSA;
+#endif
+#else
+    return ARCH_MIPS_MSA;
+#endif
 }
 

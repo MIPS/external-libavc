@@ -139,4 +139,8 @@ ih264e_fmt_conv_420sp_to_420p_ft ih264e_fmt_conv_420sp_to_420p_ssse31;
 /* SSE4 function declarations */
 ih264e_fmt_conv_420sp_to_420p_ft ih264e_fmt_conv_420sp_to_420p_sse42;
 
+/* MSA function declarations */
+ih264e_fmt_conv_420p_to_420sp_ft ih264e_fmt_conv_420p_to_420sp_msa;
+ih264e_fmt_conv_422i_to_420sp_ft ih264e_fmt_conv_422i_to_420sp_msa;
+
 #endif /* IH264E_FMT_CONV_H_ */

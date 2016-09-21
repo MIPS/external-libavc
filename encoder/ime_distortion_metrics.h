@@ -165,6 +165,16 @@ ime_sub_pel_compute_sad_16x16_ft ime_sub_pel_compute_sad_16x16_av8;
 ime_compute_sad_stat ime_compute_16x16_sad_stat_av8;
 ime_compute_satqd_16x16_lumainter_ft ime_compute_satqd_16x16_lumainter_av8;
 
+/* MSA declarations */
+ime_compute_sad_ft ime_compute_sad_16x16_msa;
+ime_compute_sad_ft ime_compute_sad_16x16_fast_msa;
+ime_compute_sad_ft ime_compute_sad_16x8_msa;
+ime_compute_sad4_diamond ime_calculate_sad4_prog_msa;
+ime_compute_sad3_diamond ime_calculate_sad3_prog_msa;
+ime_compute_sad2_diamond ime_calculate_sad2_prog_msa;
+ime_sub_pel_compute_sad_16x16_ft ime_sub_pel_compute_sad_16x16_msa;
+ime_compute_satqd_16x16_lumainter_ft ime_compute_satqd_16x16_lumainter_msa;
+
 #endif /* IME_DISTORTION_METRICS_H_ */
 
 

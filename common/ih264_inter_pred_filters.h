@@ -80,6 +80,17 @@
  *  -ih264_inter_pred_luma_horz_qpel_vert_hpel_ssse3
  *  -ih264_inter_pred_luma_horz_hpel_vert_qpel_ssse3
  *  -ih264_inter_pred_chroma_ssse3
+ *  -ih264_inter_pred_luma_copy_msa;
+ *  -ih264_inter_pred_luma_horz_msa;
+ *  -ih264_inter_pred_luma_vert_msa;
+ *  -ih264_inter_pred_luma_horz_hpel_vert_hpel_msa;
+ *  -ih264_inter_pred_luma_vert_qpel_msa;
+ *  -ih264_inter_pred_luma_horz_qpel_msa;
+ *  -ih264_inter_pred_luma_horz_qpel_vert_qpel_msa;
+ *  -ih264_inter_pred_luma_horz_qpel_vert_hpel_msa;
+ *  -ih264_inter_pred_luma_horz_hpel_vert_qpel_msa;
+ *  -ih264_inter_pred_luma_bilinear_msa;
+ *  -ih264_inter_pred_chroma_msa;
  *
  * @remarks
  *  None
@@ -236,6 +247,28 @@ ih264_inter_pred_luma_ft ih264_inter_pred_luma_horz_hpel_vert_qpel_ssse3;
 
 ih264_inter_pred_chroma_ft ih264_inter_pred_chroma_ssse3;
 
+/* MSA Intrinsic Declarations */
+ih264_inter_pred_luma_ft ih264_inter_pred_luma_copy_msa;
+
+ih264_inter_pred_luma_ft ih264_inter_pred_luma_horz_msa;
+
+ih264_inter_pred_luma_ft ih264_inter_pred_luma_vert_msa;
+
+ih264_inter_pred_luma_ft ih264_inter_pred_luma_horz_hpel_vert_hpel_msa;
+
+ih264_inter_pred_luma_ft ih264_inter_pred_luma_vert_qpel_msa;
+
+ih264_inter_pred_luma_ft ih264_inter_pred_luma_horz_qpel_msa;
+
+ih264_inter_pred_luma_ft ih264_inter_pred_luma_horz_qpel_vert_qpel_msa;
+
+ih264_inter_pred_luma_ft ih264_inter_pred_luma_horz_qpel_vert_hpel_msa;
+
+ih264_inter_pred_luma_ft ih264_inter_pred_luma_horz_hpel_vert_qpel_msa;
+
+ih264_inter_pred_luma_bilinear_ft ih264_inter_pred_luma_bilinear_msa;
+
+ih264_inter_pred_chroma_ft ih264_inter_pred_chroma_msa;
 #endif
 
 /** Nothing past this point */
