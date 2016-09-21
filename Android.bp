@@ -158,12 +158,66 @@ cc_library_static {
             local_include_dirs: ["common/mips"],
 
             srcs: ["decoder/mips/ih264d_function_selector.c"],
+
+            cflags: [
+                "-DDISABLE_MSA",
+                "-DDEFAULT_ARCH=D_ARCH_MIPS_NOMSA",
+            ],
+
+            msa: {
+                srcs: [
+                    "decoder/mips/ih264d_function_selector_msa.c",
+                    "common/mips/ih264_inter_pred_luma_msa.c",
+                    "common/mips/ih264_inter_pred_chroma_msa.c",
+                    "common/mips/ih264_deblk_luma_msa.c",
+                    "common/mips/ih264_deblk_chroma_msa.c",
+                    "common/mips/ih264_luma_intra_pred_msa.c",
+                    "common/mips/ih264_chroma_intra_pred_msa.c",
+                    "common/mips/ih264_ihadamard_scaling_msa.c",
+                    "common/mips/ih264_iquant_itrans_recon_msa.c",
+                    "common/mips/ih264_weighted_pred_msa.c",
+                    "common/mips/ih264_padding_msa.c",
+                ],
+
+                cflags: [
+                    "-UDISABLE_MSA",
+                    "-UDEFAULT_ARCH",
+                    "-DDEFAULT_ARCH=D_ARCH_MIPS_MSA",
+                ],
+            },
         },
 
         mips64: {
             local_include_dirs: ["common/mips"],
 
             srcs: ["decoder/mips/ih264d_function_selector.c"],
+
+            cflags: [
+                "-DDISABLE_MSA",
+                "-DDEFAULT_ARCH=D_ARCH_MIPS_NOMSA",
+            ],
+
+            msa: {
+                srcs: [
+                    "decoder/mips/ih264d_function_selector_msa.c",
+                    "common/mips/ih264_inter_pred_luma_msa.c",
+                    "common/mips/ih264_inter_pred_chroma_msa.c",
+                    "common/mips/ih264_deblk_luma_msa.c",
+                    "common/mips/ih264_deblk_chroma_msa.c",
+                    "common/mips/ih264_luma_intra_pred_msa.c",
+                    "common/mips/ih264_chroma_intra_pred_msa.c",
+                    "common/mips/ih264_ihadamard_scaling_msa.c",
+                    "common/mips/ih264_iquant_itrans_recon_msa.c",
+                    "common/mips/ih264_weighted_pred_msa.c",
+                    "common/mips/ih264_padding_msa.c",
+                ],
+
+                cflags: [
+                    "-UDISABLE_MSA",
+                    "-UDEFAULT_ARCH",
+                    "-DDEFAULT_ARCH=D_ARCH_MIPS_MSA",
+                ],
+            },
         },
 
         x86: {
@@ -405,6 +459,38 @@ cc_library_static {
             ],
 
             srcs: ["encoder/mips/ih264e_function_selector.c"],
+
+            cflags: [
+                "-DDISABLE_MSA",
+                "-DDEFAULT_ARCH=D_ARCH_MIPS_NOMSA",
+            ],
+
+            msa: {
+                srcs: [
+                    "encoder/mips/ih264e_function_selector_msa.c",
+                    "encoder/mips/ih264e_half_pel_msa.c",
+                    "encoder/mips/ime_distortion_metrics_msa.c",
+                    "encoder/mips/ih264e_intra_modes_eval_msa.c",
+                    "encoder/mips/ih264e_fmt_conv_msa.c",
+                    "common/mips/ih264_inter_pred_luma_msa.c",
+                    "common/mips/ih264_inter_pred_chroma_msa.c",
+                    "common/mips/ih264_deblk_luma_msa.c",
+                    "common/mips/ih264_deblk_chroma_msa.c",
+                    "common/mips/ih264_luma_intra_pred_msa.c",
+                    "common/mips/ih264_chroma_intra_pred_msa.c",
+                    "common/mips/ih264_ihadamard_scaling_msa.c",
+                    "common/mips/ih264_iquant_itrans_recon_msa.c",
+                    "common/mips/ih264_resi_trans_quant_msa.c",
+                    "common/mips/ih264_padding_msa.c",
+                    "common/mips/ih264_bilinear_pred_luma_msa.c",
+                ],
+
+                cflags: [
+                    "-UDISABLE_MSA",
+                    "-UDEFAULT_ARCH",
+                    "-DDEFAULT_ARCH=D_ARCH_MIPS_MSA",
+                ],
+            },
         },
 
         mips64: {
@@ -414,6 +500,38 @@ cc_library_static {
             ],
 
             srcs: ["encoder/mips/ih264e_function_selector.c"],
+
+            cflags: [
+                "-DDISABLE_MSA",
+                "-DDEFAULT_ARCH=D_ARCH_MIPS_NOMSA",
+            ],
+
+            msa: {
+                srcs: [
+                    "encoder/mips/ih264e_function_selector_msa.c",
+                    "encoder/mips/ih264e_half_pel_msa.c",
+                    "encoder/mips/ime_distortion_metrics_msa.c",
+                    "encoder/mips/ih264e_intra_modes_eval_msa.c",
+                    "encoder/mips/ih264e_fmt_conv_msa.c",
+                    "common/mips/ih264_inter_pred_luma_msa.c",
+                    "common/mips/ih264_inter_pred_chroma_msa.c",
+                    "common/mips/ih264_deblk_luma_msa.c",
+                    "common/mips/ih264_deblk_chroma_msa.c",
+                    "common/mips/ih264_luma_intra_pred_msa.c",
+                    "common/mips/ih264_chroma_intra_pred_msa.c",
+                    "common/mips/ih264_ihadamard_scaling_msa.c",
+                    "common/mips/ih264_iquant_itrans_recon_msa.c",
+                    "common/mips/ih264_resi_trans_quant_msa.c",
+                    "common/mips/ih264_padding_msa.c",
+                    "common/mips/ih264_bilinear_pred_luma_msa.c",
+                ],
+
+                cflags: [
+                    "-UDISABLE_MSA",
+                    "-UDEFAULT_ARCH",
+                    "-DDEFAULT_ARCH=D_ARCH_MIPS_MSA",
+                ],
+            },
         },
 
         x86: {
