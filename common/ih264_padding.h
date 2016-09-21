@@ -71,4 +71,12 @@ ih264_pad ih264_pad_left_chroma_ssse3;
 ih264_pad ih264_pad_right_luma_ssse3;
 ih264_pad ih264_pad_right_chroma_ssse3;
 
+/* MSA function declarations */
+ih264_pad ih264_pad_top_msa;
+ih264_pad ih264_pad_bottom_msa;
+ih264_pad ih264_pad_left_luma_msa;
+ih264_pad ih264_pad_left_chroma_msa;
+ih264_pad ih264_pad_right_luma_msa;
+ih264_pad ih264_pad_right_chroma_msa;
+
 #endif /*_IH264_PADDING_H_*/
