@@ -180,7 +180,7 @@ static const argument_t argument_mapping[] =
                 { "--", "--max_wd",      MAX_WD,                "Maximum width (Default: 1920) \n" },
                 { "--", "--max_ht",      MAX_HT,                "Maximum height (Default: 1088)\n" },
                 { "--", "--max_level",   MAX_LEVEL,             "Maximum Level (Default: 50)\n" },
-                { "--", "--arch", ARCH, "Set Architecture. Supported values  ARM_NONEON, ARM_A9Q, ARM_A7, ARM_A5, ARM_NEONINTR, X86_GENERIC, X86_SSSE3, X86_SSE4 \n" },
+                { "--", "--arch", ARCH, "Set Architecture. Supported values  ARM_NONEON, ARM_A9Q, ARM_A7, ARM_A5, ARM_NEONINTR, X86_GENERIC, X86_SSSE3, X86_SSE4, MIPS_MSA \n" },
                 { "--", "--soc", SOC, "Set SOC. Supported values  GENERIC, HISI_37X \n" },
                 { "--", "--chksum",            CHKSUM_FILE,              "Save Check sum file for recon data\n" },
                 { "--", "--chksum_enable",          CHKSUM_ENABLE,               "Recon MD5 Checksum file\n"},
@@ -694,6 +694,10 @@ void parse_argument(app_ctxt_t *ps_app_ctxt, CHAR *argument, CHAR *value)
               ps_app_ctxt->e_arch = ARCH_ARM_A57;
           else if((strcmp(value, "ARM_V8_NEON")) == 0)
               ps_app_ctxt->e_arch = ARCH_ARM_V8_NEON;
+          else if((strcmp(value, "MIPS_GENERIC")) == 0)
+              ps_app_ctxt->e_arch = ARCH_MIPS_GENERIC;
+          else if((strcmp(value, "MIPS_MSA")) == 0)
+              ps_app_ctxt->e_arch = ARCH_MIPS_MSA;
           else
           {
               printf("\nInvalid Arch. Setting it to ARM_A9Q\n");
