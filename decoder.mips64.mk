@@ -3,7 +3,6 @@ libavcd_inc_dir_mips64  +=  $(LOCAL_PATH)/common/mips
 libavcd_srcs_c_mips64   +=  decoder/mips/ih264d_function_selector.c
 
 ifeq ($(ARCH_MIPS_HAS_MSA),true)
-libavcd_cflags_mips64   += -mfp64 -mmsa
 libavcd_cflags_mips64   += -DDEFAULT_ARCH=D_ARCH_MIPS_MSA
 
 libavcd_srcs_c_mips64   +=  decoder/mips/ih264d_function_selector_msa.c
