@@ -4,7 +4,6 @@ libavce_inc_dir_mips64  +=  $(LOCAL_PATH)/encoder/mips
 libavce_srcs_c_mips64   +=  encoder/mips/ih264e_function_selector.c
 
 ifeq ($(ARCH_MIPS_HAS_MSA),true)
-libavce_cflags_mips64   += -mfp64 -mmsa
 libavce_cflags_mips64   += -DDEFAULT_ARCH=D_ARCH_MIPS_MSA
 
 libavce_srcs_c_mips64   +=  encoder/mips/ih264e_function_selector_msa.c
