@@ -1472,8 +1472,8 @@ static void avc_h_loop_filter_luma_mbaff_msa(UWORD8 *in, WORD32 stride,
     q0_sub_p0 = CLIP_SH(q0_sub_p0, -tc, tc);
 
     ILVR_B2_UH(zeros, src2, zeros, src3, src2_r, src3_r);
-    src2_r += q0_sub_p0;
-    src3_r -= q0_sub_p0;
+    src2_r += (v8u16)q0_sub_p0;
+    src3_r -= (v8u16)q0_sub_p0;
 
     src2_r = (v8u16)CLIP_SH_0_255(src2_r);
     src3_r = (v8u16)CLIP_SH_0_255(src3_r);

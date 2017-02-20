@@ -251,7 +251,7 @@ static void intra_predict_dc_tl_16x16_msa(UWORD8 *src, UWORD8 *dst,
 
 static void intra_predict_128dc_4x4_msa(UWORD8 *dst, WORD32 dst_stride)
 {
-    v16i8 store = __msa_ldi_b(128);
+    v16i8 store = __msa_fill_b(128);
     UWORD32 out = __msa_copy_u_w((v4i32)store, 0);
 
     SW4(out, out, out, out, dst, dst_stride);
@@ -259,7 +259,7 @@ static void intra_predict_128dc_4x4_msa(UWORD8 *dst, WORD32 dst_stride)
 
 static void intra_predict_128dc_8x8_msa(UWORD8 *dst, WORD32 dst_stride)
 {
-    v16i8 store = __msa_ldi_b(128);
+    v16i8 store = __msa_fill_b(128);
     UWORD64 out = __msa_copy_u_d((v2i64)store, 0);
 
     SD4(out, out, out, out, dst, dst_stride);
@@ -269,7 +269,7 @@ static void intra_predict_128dc_8x8_msa(UWORD8 *dst, WORD32 dst_stride)
 
 static void intra_predict_128dc_16x16_msa(UWORD8 *dst, WORD32 dst_stride)
 {
-    v16u8 out = (v16u8)__msa_ldi_b(128);
+    v16u8 out = (v16u8)__msa_fill_b(128);
 
     ST_UB8(out, out, out, out, out, out, out, out, dst, dst_stride);
     dst += (8 * dst_stride);

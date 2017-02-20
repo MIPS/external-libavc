@@ -366,7 +366,6 @@ static void avc_luma_hz_qrt_4w_msa(UWORD8 *src, WORD32 src_stride,
                                    UWORD8 *dst, WORD32 dst_stride,
                                    WORD32 height, UWORD8 hor_offset)
 {
-    UWORD8 slide;
     UWORD32 loop_cnt;
     v16i8 src0, src1, src2, src3;
     v8i16 res0, res1;
@@ -376,7 +375,6 @@ static void avc_luma_hz_qrt_4w_msa(UWORD8 *src, WORD32 src_stride,
     v16i8 plus20b = __msa_ldi_b(20);
 
     LD_SB3(&luma_mask_arr[48], 16, mask0, mask1, mask2);
-    slide = 2 + hor_offset;
 
     for(loop_cnt = (height >> 2); loop_cnt--;)
     {
@@ -394,10 +392,20 @@ static void avc_luma_hz_qrt_4w_msa(UWORD8 *src, WORD32 src_stride,
         SAT_SH2_SH(res0, res1, 7);
 
         res = __msa_pckev_b((v16i8)res1, (v16i8)res0);
-        src0 = __msa_sld_b(src0, src0, slide);
-        src1 = __msa_sld_b(src1, src1, slide);
-        src2 = __msa_sld_b(src2, src2, slide);
-        src3 = __msa_sld_b(src3, src3, slide);
+        if(hor_offset)
+        {
+            src0 = __msa_sldi_b(src0, src0, 3);
+            src1 = __msa_sldi_b(src1, src1, 3);
+            src2 = __msa_sldi_b(src2, src2, 3);
+            src3 = __msa_sldi_b(src3, src3, 3);
+        }
+        else
+        {
+            src0 = __msa_sldi_b(src0, src0, 2);
+            src1 = __msa_sldi_b(src1, src1, 2);
+            src2 = __msa_sldi_b(src2, src2, 2);
+            src3 = __msa_sldi_b(src3, src3, 2);
+        }
         src0 = (v16i8)__msa_insve_w((v4i32)src0, 1, (v4i32)src1);
         src1 = (v16i8)__msa_insve_w((v4i32)src2, 1, (v4i32)src3);
         src0 = (v16i8)__msa_insve_d((v2i64)src0, 1, (v2i64)src1);
@@ -413,7 +421,6 @@ static void avc_luma_hz_qrt_8w_msa(UWORD8 *src, WORD32 src_stride,
                                    UWORD8 *dst, WORD32 dst_stride,
                                    WORD32 height, UWORD8 hor_offset)
 {
-    UWORD8 slide;
     UWORD32 loop_cnt;
     v16i8 src0, src1, src2, src3, tmp0, tmp1;
     v8i16 res0, res1, res2, res3;
@@ -424,7 +431,6 @@ static void avc_luma_hz_qrt_8w_msa(UWORD8 *src, WORD32 src_stride,
     v16i8 plus20b = __msa_ldi_b(20);
 
     LD_SB3(&luma_mask_arr[0], 16, mask0, mask1, mask2);
-    slide = 2 + hor_offset;
 
     for(loop_cnt = height >> 2; loop_cnt--;)
     {
@@ -444,10 +450,20 @@ static void avc_luma_hz_qrt_8w_msa(UWORD8 *src, WORD32 src_stride,
         DPADD_SB4_SH(vec8, vec9, vec10, vec11, plus20b, plus20b, plus20b,
                      plus20b, res0, res1, res2, res3);
 
-        src0 = __msa_sld_b(src0, src0, slide);
-        src1 = __msa_sld_b(src1, src1, slide);
-        src2 = __msa_sld_b(src2, src2, slide);
-        src3 = __msa_sld_b(src3, src3, slide);
+        if(hor_offset)
+        {
+            src0 = __msa_sldi_b(src0, src0, 3);
+            src1 = __msa_sldi_b(src1, src1, 3);
+            src2 = __msa_sldi_b(src2, src2, 3);
+            src3 = __msa_sldi_b(src3, src3, 3);
+        }
+        else
+        {
+            src0 = __msa_sldi_b(src0, src0, 2);
+            src1 = __msa_sldi_b(src1, src1, 2);
+            src2 = __msa_sldi_b(src2, src2, 2);
+            src3 = __msa_sldi_b(src3, src3, 2);
+        }
 
         SRARI_H4_SH(res0, res1, res2, res3, 5);
         SAT_SH4_SH(res0, res1, res2, res3, 7);
